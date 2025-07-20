@@ -2,10 +2,7 @@ version: "3.8"
 
 services:
   frontend:
-    platform: linux/amd64
-    build:
-      context: ./front
-      dockerfile: Dockerfile
+    build: ./front
     container_name: uwufufu_frontend
     ports:
       - "${FRONT_PORT}:3000"
@@ -39,10 +36,7 @@ services:
       - db
 
   dashboard:
-    platform: linux/amd64
-    build:
-      context: ./dashboard
-      dockerfile: Dockerfile
+    build: ./dashboard
     container_name: uwufufu_dashboard
     ports:
       - "${DASHBOARD_PORT}:5173"
