@@ -33,15 +33,15 @@ Site communautaire de tournois,, où les utilisateurs votent pour leurs favoris 
 
 ## 📁 Structure du projet
 
-uwufufu2/
-├── backend/ # API Express + Sequelize
-│ └── uploads/ # Dossier d'images
-├── frontend/ # Next.js app (site public)
-├── dashboard/ # React + Vite admin panel
-├── nginx/ # Config NGINX (reverse proxy)
-├── docker-compose.yml
-├── .env # Variables d'environnement
-└── README.md
+uwufufu2/  
+├── backend/ # API Express + Sequelize  
+│ └── uploads/ # Dossier d'images  
+├── frontend/ # Next.js app (site public)  
+├── dashboard/ # React + Vite admin panel  
+├── nginx/ # Config NGINX (reverse proxy)  
+├── docker-compose.yml  
+├── .env # Variables d'environnement  
+└── README.md  
 
 ---
 
