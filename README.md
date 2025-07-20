@@ -57,7 +57,7 @@ uwufufu2/
 
 ```bash
 # 1. Cloner le repo
-git clone git@github.com:<tonuser>/uwufufu2.git
+git clone git@github.com:Ascenssucreausucre/uwufufu2.git
 cd uwufufu2
 
 # 2. Lancer les services
