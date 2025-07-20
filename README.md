@@ -1,6 +1,6 @@
 # 🏆 UWUFUFU 2
 
-Site communautaire de tournois 1v1 d'items (animaux, films, jeux, etc.), où les utilisateurs votent pour leurs favoris dans des brackets éliminatoires. Refonte complète du site original avec une stack moderne, self-hosted et scalable.
+Site communautaire de tournois,, où les utilisateurs votent pour leurs favoris dans des brackets éliminatoires.
 
 ---
 
@@ -17,31 +17,31 @@ Site communautaire de tournois 1v1 d'items (animaux, films, jeux, etc.), où les
 
 ## 🧱 Stack technique
 
-| Partie           | Techno principale                                |
-| ---------------- | ------------------------------------------------ |
-| Frontend         | [Next.js](https://nextjs.org/) (React, SSR)      |
-| Backend API      | [Express.js](https://expressjs.com/)             |
-| ORM              | [Sequelize](https://sequelize.org/) + PostgreSQL |
-| Dashboard        | React + Vite (SPA)                               |
-| Auth             | JWT + Bcrypt                                     |
-| Base de données  | PostgreSQL                                       |
-| Conteneurisation | Docker + Docker Compose                          |
-| Reverse proxy    | NGINX                                            |
-| Hébergement      | VPS OVH (Debian)                                 |
+| Partie           | Techno principale                                |  
+| ---------------- | ------------------------------------------------ |  
+| Frontend         | [Next.js](https://nextjs.org/) (React, SSR)      |  
+| Backend API      | [Express.js](https://expressjs.com/)             |  
+| ORM              | [Sequelize](https://sequelize.org/) + PostgreSQL |  
+| Dashboard        | React + Vite (SPA)                               |  
+| Auth             | JWT + Bcrypt                                     |  
+| Base de données  | PostgreSQL                                       |  
+| Conteneurisation | Docker + Docker Compose                          |  
+| Reverse proxy    | NGINX                                            |  
+| Hébergement      | VPS OVH (Debian)                                 |  
 
 ---
 
 ## 📁 Structure du projet
 
-uwufufu2/
-├── backend/ # API Express + Sequelize
-│ └── uploads/ # Dossier d'images
-├── frontend/ # Next.js app (site public)
-├── dashboard/ # React + Vite admin panel
-├── nginx/ # Config NGINX (reverse proxy)
-├── docker-compose.yml
-├── .env # Variables d'environnement
-└── README.md
+uwufufu2/  
+├── backend/ # API Express + Sequelize  
+│ └── uploads/ # Dossier d'images  
+├── frontend/ # Next.js app (site public)  
+├── dashboard/ # React + Vite admin panel  
+├── nginx/ # Config NGINX (reverse proxy)  
+├── docker-compose.yml  
+├── .env # Variables d'environnement  
+└── README.md  
 
 ---
 
@@ -57,7 +57,7 @@ uwufufu2/
 
 ```bash
 # 1. Cloner le repo
-git clone git@github.com:<tonuser>/uwufufu2.git
+git clone git@github.com:Ascenssucreausucre/uwufufu2.git
 cd uwufufu2
 
 # 2. Lancer les services
