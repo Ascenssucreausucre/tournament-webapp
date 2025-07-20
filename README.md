@@ -1,6 +1,6 @@
 # 🏆 UWUFUFU 2
 
-Site communautaire de tournois 1v1 d'items (animaux, films, jeux, etc.), où les utilisateurs votent pour leurs favoris dans des brackets éliminatoires. Refonte complète du site original avec une stack moderne, self-hosted et scalable.
+Site communautaire de tournois,, où les utilisateurs votent pour leurs favoris dans des brackets éliminatoires.
 
 ---
 
