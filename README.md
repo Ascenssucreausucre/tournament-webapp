@@ -17,17 +17,17 @@ Site communautaire de tournois,, où les utilisateurs votent pour leurs favoris 
 
 ## 🧱 Stack technique
 
-| Partie           | Techno principale                                |
-| ---------------- | ------------------------------------------------ |
-| Frontend         | [Next.js](https://nextjs.org/) (React, SSR)      |
-| Backend API      | [Express.js](https://expressjs.com/)             |
-| ORM              | [Sequelize](https://sequelize.org/) + PostgreSQL |
-| Dashboard        | React + Vite (SPA)                               |
-| Auth             | JWT + Bcrypt                                     |
-| Base de données  | PostgreSQL                                       |
-| Conteneurisation | Docker + Docker Compose                          |
-| Reverse proxy    | NGINX                                            |
-| Hébergement      | VPS OVH (Debian)                                 |
+| Partie           | Techno principale                                |  
+| ---------------- | ------------------------------------------------ |  
+| Frontend         | [Next.js](https://nextjs.org/) (React, SSR)      |  
+| Backend API      | [Express.js](https://expressjs.com/)             |  
+| ORM              | [Sequelize](https://sequelize.org/) + PostgreSQL |  
+| Dashboard        | React + Vite (SPA)                               |  
+| Auth             | JWT + Bcrypt                                     |  
+| Base de données  | PostgreSQL                                       |  
+| Conteneurisation | Docker + Docker Compose                          |  
+| Reverse proxy    | NGINX                                            |  
+| Hébergement      | VPS OVH (Debian)                                 |  
 
 ---
 
