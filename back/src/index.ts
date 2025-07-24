@@ -1,7 +1,6 @@
-import { Express } from "express";
+import app from "./app.ts";
 
-const app: Express = require("./src/app");
-const PORT = process.env.POSTGRES_PORT || 3000;
+const PORT = process.env.API_PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);

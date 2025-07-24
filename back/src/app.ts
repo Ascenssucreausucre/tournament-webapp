@@ -1,13 +1,11 @@
-import { NextFunction, Request, Response } from "express";
-import { Sequelize } from "sequelize";
-import express from "express";
-import cors from "cors";
+import express, { NextFunction, Request, Response } from "express";
+import cors, { CorsOptions } from "cors";
 import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+import sequelize from "./config/sequelize.ts";
+import routes from "./routes/index.ts";
 
-require("dotenv").config();
-const sequelize: Sequelize = require("./config/sequelize");
-const models = require("./models");
-
+dotenv.config();
 const app = express();
 
 // Middlewares
@@ -16,18 +14,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("public/uploads"));
 
+const FRONT_URL = process.env.FRONT_URL;
+const DASHBOARD_URL = process.env.DASHBOARD_URL;
+
+if (!FRONT_URL || !DASHBOARD_URL) {
+  throw new Error(
+    "FRONT_URL and DASHBOARD_URL must be defined in the .env file"
+  );
+}
+
 // Configuration CORS
-const corsOptions = {
-  origin: [process.env.FRONT_URL, process.env.DASHBOARD_URL],
+const corsOptions: CorsOptions = {
+  origin: [FRONT_URL, DASHBOARD_URL] as string[],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOptions)); // Applique la configuration CORS à l'application
-
-// Routes
-const routes = require("./routes");
 
 app.use("/public", express.static("public")); // pour les images
 app.use("/api", routes);
@@ -36,7 +40,7 @@ app.use("/api", routes);
 sequelize
   .sync({ alter: true })
   .then(() => console.log("Base de données synchronisée."))
-  .catch((err) => console.error("Erreur de synchronisation :", err));
+  .catch((err: any) => console.error("Erreur de synchronisation :", err));
 
 // Gestion des erreurs globale
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
@@ -59,4 +63,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-module.exports = app;
+export default app;

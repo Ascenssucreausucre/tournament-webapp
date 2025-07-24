@@ -1,22 +1,36 @@
 import fs from "fs";
 import path from "path";
-import { sequelize } from "../config/sequelize";
-import { Model, Sequelize } from "sequelize";
+import { fileURLToPath, pathToFileURL } from "url";
+import sequelize from "../config/sequelize";
+import { Model } from "sequelize";
+
+// Recréer __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Objet qui contiendra tous les modèles
 const models: Record<string, typeof Model> = {};
 
-// Lecture des fichiers du dossier courant (sauf index.ts)
-fs.readdirSync(__dirname)
-  .filter((file) => file !== "index.ts" && file.endsWith(".ts"))
-  .forEach((file) => {
-    const modelModule = require(path.join(__dirname, file));
-    const model = modelModule.default?.initModel
-      ? modelModule.default.initModel(sequelize)
-      : modelModule(sequelize);
+const files = fs.readdirSync(__dirname).filter(
+  (file) =>
+    file !== "index.ts" && (file.endsWith(".ts") || file.endsWith(".js")) // ← support dev et build
+);
 
-    models[model.name] = model;
-  });
+for (const file of files) {
+  const filePath = pathToFileURL(path.join(__dirname, file)).href;
+  const modelModule = await import(filePath);
+
+  const model =
+    modelModule.default?.initModel?.(sequelize) ??
+    modelModule.initModel?.(sequelize);
+
+  if (!model) {
+    console.warn(`⚠️  Aucun modèle exporté par ${file}`);
+    continue;
+  }
+
+  models[model.name] = model;
+}
 
 // Appel des méthodes d'association si elles existent
 Object.values(models).forEach((model: any) => {
@@ -25,5 +39,4 @@ Object.values(models).forEach((model: any) => {
   }
 });
 
-export { sequelize };
 export default models;
